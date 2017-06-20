@@ -13,7 +13,7 @@ sleep 10
 for i in "$@"
 do
 docker run \
-   -it \
+   -d \
    --cpu-period=1000000 --cpu-quota=1000 \
    -e constraint:server==manager \
    -v $(readlink -m redis$i.conf):/usr/local/etc/redis/redis.conf \
