@@ -1,14 +1,14 @@
-for arg in "$@"
+for i in "$@"
 docker stop redis$i &
 done
 sleep 2
 
-for arg in "$@"
+for i in "$@"
 docker rm redis$i &
 done
 sleep 2
 
-for arg in "$@"
+for i in "$@"
 docker run \
    -d \
    --cpu-period=1000000 --cpu-quota=1000 \
