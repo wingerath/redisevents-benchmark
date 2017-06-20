@@ -1,10 +1,10 @@
 for i in "$@"
-docker stop redis$i &
+docker stop "redis$i" &
 done
 sleep 2
 
 for i in "$@"
-docker rm redis$i &
+docker rm "redis$i" &
 done
 sleep 2
 
@@ -15,6 +15,6 @@ docker run \
    -e constraint:server==manager \
    -p $i:6379 \
    --restart=always \
-   --name redis$i \
+   --name "redis$i" \
     redis:3.2.9
 done
