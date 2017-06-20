@@ -1,15 +1,18 @@
 for i in "$@"
-	echo xxx
+do
+docker stop redis$i &
 done
 sleep 2
 
 for i in "$@"
-echo docker rm redis$i 
+do
+docker rm redis$i &
 done
 sleep 2
 
 for i in "$@"
-echo docker run \
+do
+docker run \
    -d \
    --cpu-period=1000000 --cpu-quota=1000 \
    -e constraint:server==manager \
