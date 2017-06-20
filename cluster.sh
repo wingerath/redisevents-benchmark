@@ -2,18 +2,18 @@ for i in "$@"
 do
 docker stop redis$i &
 done
-sleep 5
+sleep 10
 
 for i in "$@"
 do
 docker rm redis$i &
 done
-sleep 5
+sleep 10
 
 for i in "$@"
 do
 docker run \
-   -d \
+   -it \
    --cpu-period=1000000 --cpu-quota=1000 \
    -e constraint:server==manager \
    -v $(readlink -m redis$i.conf):/usr/local/etc/redis/redis.conf \
