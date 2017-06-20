@@ -1,5 +1,5 @@
 for i in "$@"
-echo docker stop redis$i 
+	echo xxx
 done
 sleep 2
 
