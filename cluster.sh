@@ -1,12 +1,3 @@
-for i in "$@"
-docker stop "redis$i" &
-done
-sleep 2
-
-for i in "$@"
-docker rm "redis$i" &
-done
-sleep 2
 
 for i in "$@"
 docker run \
