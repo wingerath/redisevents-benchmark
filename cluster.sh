@@ -8,7 +8,7 @@ for i in "$@"
 do
 docker rm redis$i &
 done
-sleep 2
+sleep 5
 
 for i in "$@"
 do
@@ -21,3 +21,7 @@ docker run \
    --name redis$i \
     redis:3.2.9
 done
+
+sleep 5
+
+docker ps -a
