@@ -2,7 +2,7 @@ for i in "$@"
 do
 docker stop redis$i &
 done
-sleep 2
+sleep 5
 
 for i in "$@"
 do
@@ -16,7 +16,7 @@ docker run \
    -d \
    --cpu-period=1000000 --cpu-quota=1000 \
    -e constraint:server==manager \
-   -v $(readlink -m ./redis.conf):/usr/local/etc/redis/redis.conf \
+   -v $(readlink -m ./redis2.conf):/usr/local/etc/redis/redis.conf \
    -p $i:$i \
    --restart=always \
    --name redis$i \
