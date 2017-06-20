@@ -19,6 +19,7 @@ docker run \
    -v $(readlink -m redis$i.conf):/usr/local/etc/redis/redis.conf \
    -p $i:$i \
    --restart=always \
+   --net=host \
    --name redis$i \
     redis:3.2.9 redis-server /usr/local/etc/redis/redis.conf
 done
