@@ -16,7 +16,8 @@ docker run \
    -d \
    --cpu-period=1000000 --cpu-quota=1000 \
    -e constraint:server==manager \
-   -p 6379:$i \
+   -v $(readlink -m ./redis.conf):/usr/local/etc/redis/redis.conf \
+   -p $i:$i \
    --restart=always \
    --name redis$i \
     redis:3.2.9
