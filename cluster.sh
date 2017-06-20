@@ -1,10 +1,10 @@
 for i in "$@"
-echo docker stop redis$i &
+echo docker stop redis$i 
 done
 sleep 2
 
 for i in "$@"
-echo docker rm redis$i &
+echo docker rm redis$i 
 done
 sleep 2
 
